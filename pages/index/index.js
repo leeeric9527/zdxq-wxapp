@@ -5,11 +5,13 @@ import Util from '../../utils/util.js';
 const QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
 const app = getApp()
 const http = new HTTP()
+let audio = wx.createInnerAudioContext()
 
 Page({
   data: {
-    num: 0,
-    city: ''
+    num: 1,
+    city: '',
+    isPlay: true
   },
   onLoad() {
     this.playAudio();
@@ -75,13 +77,29 @@ Page({
   },
   // 播放校庆歌曲
   playAudio() {
-    let audio = wx.createInnerAudioContext();
     audio.src = 'https://m10.music.126.net/20181109155256/a52760af9c91619cbc6d0e1c40ebc9f1/ymusic/8b5d/47b5/b98b/fd890bf0b628f72f2b530886d6529d4d.mp3';
+    audio.autoplay = true;
     setTimeout(() => {
-      audio.play();
+
     }, 3000);
     setTimeout(() => {
-      audio.pause();
+
     }, 20000);
+  },
+  // 点击播放暂停背景音乐
+  musicAction() {
+    let self = this;
+    let isPlay = self.data.isPlay;
+    if (isPlay) {
+      audio.pause();
+      self.setData({
+        isPlay: false
+      });
+    } else {
+      audio.play();
+      self.setData({
+        isPlay: true
+      });
+    }
   }
 })

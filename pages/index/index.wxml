@@ -1,6 +1,29 @@
-<view class="container" style='background:url(/images/bg.png) no-repeat center center; background-size: cover;'>
-  <!-- <view class="userinfo">
+<view class="container">
+  <image src='/images/music.png' bindtap='musicAction'></image>
+  <view class="userinfo">
     <open-data type="userAvatarUrl" class="userinfo-avatar"></open-data>
     <open-data type="userNickName" class="userinfo-nickname"></open-data>
-  </view> -->
+  </view>
+  <view class='top-wrapper'>
+    <image src='/images/top_bg.jpg'></image>
+    <view class='title-wrapper'>
+      <image src="/images/tbg.png"></image>
+    </view>
+  </view>
+  <view class='bottom-wrapper' style='background:url(/images/bottom_bg.png) no-repeat center center; background-size:cover;'>
+    <view class='content-box'>
+      <view class='title-box'>
+        <image src='/images/lb.png'></image>
+        <text>我是第{{num}}个为中大庆祝生日的！</text>
+      </view>
+      <view class='comment-box'>
+        <input type='text' placeholder='我在{{city}},为母校中大献上祝福' placeholder-class='tip'></input>
+        <button>留言</button>
+      </view>
+      <view class='action-box'>
+        <button>转发为母校接力</button>
+        <button>生成海报</button>
+      </view>
+    </view>
+  </view>
 </view>

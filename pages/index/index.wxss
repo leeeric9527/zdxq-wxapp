@@ -1,23 +1,144 @@
-/**index.wxss**/
-
 .container {
+  width: 100%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.container>image {
+  position: absolute;
+  right: 50rpx;
+  top: 50rpx;
+  width: 67rpx;
+  height: 67rpx;
+  z-index: 555;
+}
+
+.top-wrapper {
+  height: 390rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.top-wrapper>image {
+  width: 100%;
+  height: 100%;
+}
+
+.title-wrapper {
+  position: absolute;
+  left: 0;
+  bottom: -115rpx;
+  width: 100%;
+  height: 180rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.title-wrapper>image {
+  width: 650rpx;
+  height: 100%;
+}
+
+.bottom-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .userinfo {
+  position: absolute;
+  left: 0;
+  top: 229rpx;
+  right: 155rpx;
+  z-index: 100;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 20rpx;
   border-radius: 50%;
   overflow: hidden;
 }
 
 .userinfo-nickname {
-  color: #aaa;
+  color: #fff;
+}
+
+.content-box {
+  padding: 200rpx 50rpx;
+}
+
+.content-box .title-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-box .title-box image {
+  width: 57rpx;
+  height: 57rpx;
+  margin-right: 30rpx;
+}
+
+.content-box .title-box text {
+  font-size: 32rpx;
+}
+
+.comment-box {
+  display: flex;
+  align-items: center;
+  margin-top: 50rpx;
+}
+
+.comment-box input {
+  box-sizing: border-box;
+  width: 520rpx;
+  height: 75rpx;
+  border: 2rpx solid #13181b;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  margin-right: 10rpx;
+}
+
+.comment-box button {
+  margin: 0;
+  padding: 0;
+  width: 120rpx;
+  height: 75rpx;
+  background: #dc1c1b;
+  line-height: 75rpx;
+  font-size: 30rpx;
+  color: #fff;
+}
+
+.tip {
+  font-size: 30rpx;
+  color: #d5d5d5;
+  text-align: center;
+}
+
+.action-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50rpx;
+}
+
+.action-box button {
+  width: 300rpx;
+  margin: 0;
+  padding: 0;
+  height: 75rpx;
+  background: #dc1c1b;
+  line-height: 75rpx;
+  font-size: 30rpx;
+  color: #fff;
 }
