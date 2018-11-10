@@ -1,28 +1,51 @@
 <view class="container">
-  <image src='/images/music.png' bindtap='musicAction'></image>
   <view class="userinfo">
-    <open-data type="userAvatarUrl" class="userinfo-avatar"></open-data>
+    <view class='avatar-box'>
+      <open-data type="userAvatarUrl" class="userinfo-avatar"></open-data>
+    </view>
     <open-data type="userNickName" class="userinfo-nickname"></open-data>
   </view>
   <view class='top-wrapper'>
-    <image src='/images/top_bg.jpg'></image>
     <view class='title-wrapper'>
       <image src="/images/tbg.png"></image>
     </view>
   </view>
-  <view class='bottom-wrapper' style='background:url(/images/bottom_bg.png) no-repeat center center; background-size:cover;'>
+  <view class='bottom-wrapper'>
     <view class='content-box'>
       <view class='title-box'>
         <image src='/images/lb.png'></image>
         <text>我是第{{num}}个为中大庆祝生日的！</text>
       </view>
-      <view class='comment-box'>
-        <input type='text' placeholder='我在{{city}},为母校中大献上祝福' placeholder-class='tip'></input>
-        <button>留言</button>
-      </view>
+      <form bindsubmit='blessing'>
+        <view class='comment-box'>
+          <input name='content' type='text' placeholder='我在{{city}},为母校中大献上祝福' placeholder-class='tip'></input>
+          <button form-type='submit' open-type='getUserInfo' bindgetuserinfo='wxAuthorize'>留言</button>
+        </view>
+      </form>
       <view class='action-box'>
-        <button>转发为母校接力</button>
-        <button>生成海报</button>
+        <button open-type='share'>为母校接力</button>
+        <button open-type='getUserInfo' bindgetuserinfo='createImage'>生成海报</button>
+      </view>
+      <view class='bullet-box'>
+        <view class='danmu' wx:for="{{danmus}}" wx:for-item="item" wx:key="this" style="animation-delay: {{item.animationDelay}}s; top: {{item.lineNum * 20}}rpx; transform: translateX(-{{item.width}}rpx);">
+          <image src='{{item.avatar}}'></image>
+          <text>{{item.txt}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='bottom-font'>
+    <image src='/images/font.png'></image>
+  </view>
+  <view class='bottom-intro'>
+    <text>@深圳市小程序科技</text>
+  </view>
+  <view class='poster-box' wx:if="{{showPoster}}">
+    <view class='poster-content'>
+      <image src='{{poster}}'></image>
+      <view class='poster-action'>
+        <button bindtap='saveImage'>保存至相册</button>
+        <button bindtap='closePoster'>取消</button>
       </view>
     </view>
   </view>

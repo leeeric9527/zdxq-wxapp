@@ -24,7 +24,7 @@ class HTTP {
       data: data,
       method: method,
       header: {
-        "content-type": "application/json"
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       success: res => {
         const code = res.statusCode.toString()

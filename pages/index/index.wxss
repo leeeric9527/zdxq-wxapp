@@ -1,18 +1,15 @@
-.container {
+page {
   width: 100%;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
   position: relative;
+  overflow: hidden;
 }
 
-.container>image {
-  position: absolute;
-  right: 50rpx;
-  top: 50rpx;
-  width: 67rpx;
-  height: 67rpx;
-  z-index: 555;
+.container {
+  width: 100%;
+  height: 100%;
+  background: url(https://qiaoxin.oss-cn-shenzhen.aliyuncs.com/uploads/20181110/a415b708442ab18d4d52fb8040311506.png) no-repeat center center;
+  background-size: cover;
 }
 
 .top-wrapper {
@@ -23,15 +20,10 @@
   position: relative;
 }
 
-.top-wrapper>image {
-  width: 100%;
-  height: 100%;
-}
-
 .title-wrapper {
   position: absolute;
   left: 0;
-  bottom: -115rpx;
+  top: 215rpx;
   width: 100%;
   height: 180rpx;
   display: flex;
@@ -46,13 +38,14 @@
 .bottom-wrapper {
   flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
 .userinfo {
   position: absolute;
   left: 0;
-  top: 229rpx;
+  top: 120rpx;
   right: 155rpx;
   z-index: 100;
   display: flex;
@@ -60,10 +53,22 @@
   align-items: flex-end;
 }
 
-.userinfo-avatar {
+.avatar-box {
   width: 150rpx;
   height: 150rpx;
-  margin-right: 20rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10rpx;
+  background: url(https://qiaoxin.oss-cn-shenzhen.aliyuncs.com/uploads/20181110/97e4c11d2dac5592629aca7e1e094c25.png) no-repeat center center;
+  background-size: cover;
+}
+
+.userinfo-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  margin-top: 10rpx;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -73,7 +78,7 @@
 }
 
 .content-box {
-  padding: 200rpx 50rpx;
+  padding: 50rpx 50rpx 0;
 }
 
 .content-box .title-box {
@@ -94,6 +99,7 @@
 
 .comment-box {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   margin-top: 50rpx;
 }
@@ -129,12 +135,129 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 50rpx;
+  margin-top: 70rpx;
 }
 
 .action-box button {
   width: 300rpx;
   margin: 0;
+  padding: 0;
+  height: 75rpx;
+  background: #dc1c1b;
+  line-height: 75rpx;
+  font-size: 30rpx;
+  color: #fff;
+}
+
+.bullet-box {
+  line-height: 50rpx;
+  height: 200rpx;
+  margin-top: 20rpx;
+  position: relative;
+}
+
+@keyframes danmu {
+  0% {
+    transform: translateX(100vw);
+  }
+
+  100% {
+    transform: translateX(-200vw);
+  }
+}
+
+.danmu {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  overflow: visible;
+  white-space: nowrap;
+  text-align: right;
+  height: 30rpx;
+  line-height: 30rpx;
+  animation-name: danmu;
+  animation-duration: 18s;
+  font-size: 28rpx;
+  animation-timing-function: linear;
+  display: flex;
+  align-items: center;
+}
+
+.danmu image {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.bottom-font {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  bottom: 45rpx;
+  width: 100%;
+}
+
+.bottom-font image {
+  width: 300rpx;
+  height: 58rpx;
+}
+
+.bottom-intro {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2rpx;
+}
+
+.bottom-intro text {
+  font-size: 20rpx;
+}
+
+.poster-box {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.poster-box .poster-content {
+  height: 1150rpx;
+  width: 650rpx;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 50rpx;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.poster-box .poster-content>image {
+  width: 500rpx;
+  height: 900rpx;
+  margin-bottom: 30rpx;
+}
+
+.poster-box .poster-content .poster-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500rpx;
+}
+
+.poster-box .poster-content .poster-action button {
+  width: 200rpx;
+  margin: 30rpx 0;
   padding: 0;
   height: 75rpx;
   background: #dc1c1b;
